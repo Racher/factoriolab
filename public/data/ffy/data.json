@@ -41,6 +41,30 @@
   ],
   "icons": [
     {
+      "id": "overdriver",
+      "x": 192,
+      "y": 0,
+      "color": "#768286"
+    },
+    {
+      "id": "mass-driver",
+      "x": 256,
+      "y": 0,
+      "color": "#768286"
+    },
+    {
+      "id": "supply-bot",
+      "x": 320,
+      "y": 0,
+      "color": "#768286"
+    },
+    {
+      "id": "quantum-bot-chassis",
+      "x": 384,
+      "y": 0,
+      "color": "#768286"
+    },
+    {
       "id": "abduction-machine",
       "x": 0,
       "y": 1024,
@@ -938,7 +962,7 @@
       "machine": {
         "modules": true,
         "drain": 2,
-        "speed": 0.5,
+        "speed": 0.25,
         "usage": 10
       }
     },
@@ -965,7 +989,7 @@
       "machine": {
         "modules": true,
         "drain": 2,
-        "speed": 0.5,
+        "speed": 0.1,
         "usage": 5
       }
     },
@@ -1034,7 +1058,7 @@
       "machine": {
         "modules": true,
         "drain": 4,
-        "speed": 1,
+        "speed": 0.5,
         "usage": 20
       }
     },
@@ -1240,7 +1264,7 @@
       "machine": {
         "modules": true,
         "drain": 2,
-        "speed": 1,
+        "speed": 0.5,
         "usage": 30
       }
     },
@@ -1409,6 +1433,14 @@
       "row": 0
     },
     {
+      "id": "mass-driver",
+      "name": "Mass Driver",
+      "category": "stations",
+      "stack": 50,
+      "row": 0,
+      "icon": "mass-driver"
+    },
+    {
       "id": "mass-energy-converter",
       "name": "Mass Energy Converter",
       "category": "intermediates",
@@ -1478,6 +1510,14 @@
       "row": 0
     },
     {
+      "id": "overdriver",
+      "name": "Overdriver",
+      "category": "stations",
+      "stack": 50,
+      "row": 0,
+      "icon": "overdriver"
+    },
+    {
       "id": "planetary-research-bot",
       "name": "Planetary Research Bot",
       "category": "logistics",
@@ -1518,6 +1558,14 @@
       "category": "stations",
       "stack": 50,
       "row": 0
+    },
+    {
+      "id": "quantum-bot-chassis",
+      "name": "Quantum Bot Chassis",
+      "category": "intermediates",
+      "stack": 100,
+      "row": 0,
+      "icon": "quantum-bot-chassis"
     },
     {
       "id": "quantum-computer",
@@ -1632,7 +1680,7 @@
       "machine": {
         "modules": true,
         "drain": 2,
-        "speed": 0.4,
+        "speed": 0.25,
         "usage": 10
       }
     },
@@ -1790,6 +1838,14 @@
       "row": 0
     },
     {
+      "id": "supply-bot",
+      "name": "Supply Bot",
+      "category": "logistics",
+      "stack": 100,
+      "row": 0,
+      "icon": "supply-bot"
+    },
+    {
       "id": "tesla-artifact",
       "name": "Tesla Artifact",
       "category": "stations",
@@ -1936,7 +1992,7 @@
       "category": "component",
       "id": "ai-controller-circuit",
       "name": "AI Controller Circuit",
-      "time": 0.4,
+      "time": 0.25,
       "row": 0,
       "producers": [
         "atomic-printer",
@@ -2213,7 +2269,7 @@
       ],
       "in": {
         "medium-density-structure": 20,
-        "singularity-field-generator": 4,
+        "singularity-field-generator": 1,
         "robotic-parts": 8
       },
       "out": {
@@ -2293,6 +2349,24 @@
       }
     },
     {
+      "category": "logistics",
+      "id": "supply-bot",
+      "name": "Supply Bot",
+      "time": 1,
+      "row": 0,
+      "producers": [
+        "advanced-ship-assembler",
+        "ship-assembler"
+      ],
+      "in": {
+        "quantum-bot-chassis": 2,
+        "fast-inserter-bot": 1
+      },
+      "out": {
+        "supply-bot": 1
+      }
+    },
+    {
       "category": "stations",
       "id": "construction-tower",
       "name": "Construction Tower",
@@ -2305,7 +2379,7 @@
       "in": {
         "medium-density-structure": 12,
         "robotic-parts": 4,
-        "quantum-computer": 6
+        "ai-controller-circuit": 12
       },
       "out": {
         "construction-tower": 1
@@ -2592,7 +2666,7 @@
       ],
       "in": {
         "inserter-bot": 1,
-        "quantum-computer": 2
+        "organic-polymer": 4
       },
       "out": {
         "fast-inserter-bot": 1
@@ -2648,7 +2722,7 @@
       ],
       "in": {
         "medium-density-structure": 16,
-        "ai-controller-circuit": 8,
+        "organic-compounds": 12,
         "robotic-parts": 8
       },
       "out": {
@@ -2748,6 +2822,24 @@
     },
     {
       "category": "stations",
+      "id": "mass-driver",
+      "name": "Mass Driver",
+      "time": 1,
+      "row": 0,
+      "producers": [
+        "advanced-assembler",
+        "assembler"
+      ],
+      "in": {
+        "medium-density-structure": 6,
+        "ai-controller-circuit": 5
+      },
+      "out": {
+        "mass-driver": 1
+      }
+    },
+    {
+      "category": "stations",
       "id": "high-energy-connector",
       "name": "High Energy Connector",
       "time": 1,
@@ -2758,10 +2850,28 @@
       ],
       "in": {
         "connector": 1,
-        "quantum-computer": 4
+        "high-energy-laser": 5
       },
       "out": {
         "high-energy-connector": 1
+      }
+    },
+    {
+      "category": "stations",
+      "id": "overdriver",
+      "name": "Overdriver",
+      "time": 3,
+      "row": 4,
+      "producers": [
+        "advanced-assembler",
+        "assembler"
+      ],
+      "in": {
+        "medium-density-structure": 12,
+        "fabricator": 6
+      },
+      "out": {
+        "overdriver": 1
       }
     },
     {
@@ -2983,7 +3093,7 @@
       "category": "component",
       "id": "low-density-structure",
       "name": "Low Density Structure",
-      "time": 0.4,
+      "time": 0.25,
       "row": 0,
       "producers": [
         "atomic-printer",
@@ -3018,7 +3128,7 @@
       "category": "component",
       "id": "medium-density-structure",
       "name": "Medium Density Structure",
-      "time": 0.5,
+      "time": 0.25,
       "row": 0,
       "producers": [
         "atomic-printer",
@@ -3116,8 +3226,8 @@
         "assembler"
       ],
       "in": {
-        "quantum-computer": 4,
-        "large-cargo-hold": 1
+        "ai-controller-circuit": 6,
+        "cargo-hold": 2
       },
       "out": {
         "networked-storage-hold": 1
@@ -3134,8 +3244,7 @@
       ],
       "in": {
         "ice": 8,
-        "organic-compounds": 4,
-        "biological-substrate": 1
+        "biological-substrate": 5
       },
       "out": {
         "organic-compounds": 7
@@ -3170,9 +3279,9 @@
         "ship-assembler"
       ],
       "in": {
-        "recycled-asteroid-research-bot": 2,
-        "inserter-bot": 4,
-        "fabricator": 6
+        "ice": 6,
+        "overdriver": 1,
+        "connector": 2
       },
       "out": {
         "planetary-research-bot": 1
@@ -3262,7 +3371,7 @@
       ],
       "in": {
         "cargo-hold": 1,
-        "quantum-computer": 4
+        "ai-controller-circuit": 6
       },
       "out": {
         "provider-cargo-hold": 1
@@ -3711,6 +3820,25 @@
       }
     },
     {
+      "category": "intermediates",
+      "id": "quantum-bot-chassis",
+      "name": "Quantum Bot Chassis",
+      "time": 0.4,
+      "row": 0,
+      "producers": [
+        "advanced-assembler",
+        "assembler"
+      ],
+      "in": {
+        "quantum-computer": 3,
+        "singularity-field-generator": 1,
+        "plasma-engine-parts": 6
+      },
+      "out": {
+        "quantum-bot-chassis": 1
+      }
+    },
+    {
       "category": "logistics",
       "id": "stellar-research-bot",
       "name": "Stellar Research Bot",
@@ -3721,10 +3849,10 @@
         "ship-assembler"
       ],
       "in": {
-        "recycled-planetary-research-bot": 3,
-        "singularity-field-generator": 4,
-        "fast-cargo-drone": 8,
-        "quantum-computer": 4
+        "quantum-bot-chassis": 3,
+        "high-energy-connector": 4,
+        "provider-cargo-hold": 2,
+        "command-core": 2
       },
       "out": {
         "stellar-research-bot": 1
@@ -3742,7 +3870,8 @@
       ],
       "in": {
         "asteroid-research-station": 1,
-        "high-density-structure": 16
+        "high-density-structure": 16,
+        "quantum-computer": 4
       },
       "out": {
         "stellar-research-station": 1
