@@ -66,6 +66,9 @@
             "staging": {
               "baseHref": "/staging/"
             },
+            "pages": {
+              "baseHref": "/factoriolab/"
+            },
             "next": {
               "baseHref": "/next/"
             }
